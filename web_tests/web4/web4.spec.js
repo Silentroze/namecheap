@@ -25,7 +25,8 @@ test.beforeAll(async ({ browser }) => {
         pin: await page.textContent(locators.form.pin),
         news: await page.textContent(locators.form.news)
     }
-    page.close()
+    await page.click(locators.homePage.dropdown)
+    await page.click(locators.homePage.logOut)
 })
 
 test("My profile page. Client area", async ({ page }) => {
@@ -36,16 +37,24 @@ test("My profile page. Client area", async ({ page }) => {
         await loginPage.loginToAcc()
         await autorization.setValues(input.mail, input.password)
         await autorization.clickLogin()
+    })
+    await test.step(`2. Click on the triangle near the "User@email" button`, async () => {
         await page.click(locators.homePage.dropdown)
         await page.click(locators.homePage.profile) 
     })
-    await test.step(`2. Click on the "LOG IN" text`, async () => {
+    let title = (await page.textContent(locators.homePage.title)).split('\n').filter(x => x.includes("Profile")).toString().trim()
+    await assert(title, expected.step2, `After clicking on the "Profile" opened page "Profile" should be displayed`)
 
-    })
     await test.step(`3. On the authorization page enter a valid email and password for the previously registered user (to check the entered password, click on the "eye” icon in the password field.)`, async () => {
-
+    let step4actual = {
+            name: await page.textContent(locators.form.name),
+            email: await page.textContent(locators.form.email),
+            password: await page.textContent(locators.form.password),
+            phone: await page.textContent(locators.form.phone),
+            address: await page.textContent(locators.form.address),
+            pin: await page.textContent(locators.form.pin),
+            news: await page.textContent(locators.form.news)
+        }
+    await assert.deepEqual(step4actual, expected.info, `Check that opened page has to contain values in the next fields and compare them with values from precondition:\n2.1. Name\n2.2. Email\n2.3. Password (not empty)\n2.4. Phone\n2.5. Address\n2.6. Support pin\n2.7. Newsletter`)
     })
-    await test.step(`4. Click the "Login" button `, async () => {
-
-    })
-})
+}) 

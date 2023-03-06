@@ -13,8 +13,11 @@ export default{
         "eyeIcon": '//*[@class="icon icon-eye"]'
     },
     "homePage":{
+        "dpopDownVisibl": '//*[@class="ssls-dropdown__holder ssls-dropdown__holder--toolbar"]',
         "dropdown": '//*[@class="ssls-dropdown ssls-header-user ssls-header-dropdown"]',
-        "profile": '//*[@href="/user/profile"]'
+        "profile": '//*[@href="/user/profile"]',
+        "logOut": `//*[text()=' Log out']`,
+        "title":`//*[@class="page-title"]`
     },
     "form" :{
         "name":`//*[@class="text ng-binding"][@ng-hide="activeRow === 'name'"]`,
@@ -24,5 +27,5 @@ export default{
         "address":`//*[@class="text ng-binding"][@ng-hide="activeRow === 'address'"]`,
         "pin":`//*[@name="supportPin"]`,
         "news":`//*[@name="newsletterOn"]`,
-    }
+    },
 }

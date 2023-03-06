@@ -4,6 +4,6 @@
         "password": "123456"
     },
     "expected":{
-      
+      "step2":"Profile"
     }
 }
