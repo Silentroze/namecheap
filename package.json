@@ -1,0 +1,19 @@
+{
+  "name": "namecheap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --trace on",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  },
+  "dependencies": {
+    "chai": "^4.3.7"
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "input":{
+        "mail":"ssls.automation+666@gmail.com",
+        "password": "123456"
+    },
+    "expected":{
+      
+    }
+}
