@@ -31,7 +31,7 @@ test("Authorization page (Welcome back!)", async ({ page }) => {
         }
         await page.click(`(${locators.login.loginBtn})` + `[contains(text(),'${input.mail}')]`)
         actualResultStep4.dropdown = await page.isVisible(locators.homePage.dpopDownVisibl)
-        nexpected.step4.mail = input.mail
+        expected.step4.mail = input.mail
         await assert.deepEqual(actualResultStep4, expected.step4, `The "Log in" button has to be changed to the "User@email" button (with the dropdown menu) from the left side in the Header of the page        `)
     })
 })
